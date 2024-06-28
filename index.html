@@ -3,46 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Basil Eldo - Portfolio</title>
+    <title>Basil Eldo's Personal Webpage</title>
+    <!-- Link Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #1c1c1c;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .content {
+            padding: 20px;
+            padding-top: 160px;
+        }
+
+        .animate-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(120deg, rgba(0, 204, 255, 0.3), rgba(3, 108, 213, 0.3));
+            z-index: -1;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            transition: top 0.3s;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-scrolled {
+            top: -70px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #ff0000;
+            left: 0;
+            bottom: -5px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: left;
+            position: relative;
+            padding-right: 40%;
+        }
+
+        .section h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: #ef0b0b;
+            left: 0;
+            bottom: -10px;
+        }
+
+        .section p {
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .typing-effect {
+            font-size: 28px;
+            color: #ff0000;
+        }
+
+        .toggle-header {
+            cursor: pointer;
+            background-color: rgba(255, 0, 0, 0.3);
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 24px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .toggle-header:hover {
+            background-color: rgba(255, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+
+        .toggle-content {
+            display: none;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .toggle-content.active {
+            display: block;
+        }
+
+        .toggle-content ul {
+            padding-left: 20px;
+        }
+
+        .toggle-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #ff0000;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            margin-top: 2%;
+            margin-left: 5%;
+            margin-bottom: 260px;
+        }
+
+        .download-button {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            padding-right: 2%;
+            margin-left: 1%;
+        }
+
+        .download-button:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .project-box {
+            width: calc(33.33% - 20px);
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff0000;
+        }
+
+        .project-box p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        a {
+            color: #ff0000;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #cc0000;
+        }
+        
+    </style>
 </head>
 <body>
+    <div class="animate-bg"></div>
 
-    <header>
-        <div class="container">
-            <h1>Basil Eldo</h1>
-            <p>Web Developer</p>
-        </div>
+    <header id="header">
+        <h1><span class="highlight">B</span>asil.</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <section id="about">
-        <div class="container">
+    <div class="content">
+        <section id="home" class="section">
+            <h2>Hi, I'm Basil Eldo</h2>
+            <h3><span class="typing-effect"></span></h3>
+        </section>
+        <div class="header-buttons">
+            <a href="path_to_your_cv.pdf" class="download-button" download>Download CV</a>
+        </div>
+        
+        <section id="about" class="section">
             <h2>About Me</h2>
-            <p>Hi, I'm Basil Eldo, a passionate web developer with expertise in front-end technologies...</p>
-            <!-- Add more information about yourself here -->
-        </div>
-    </section>
+            <p>Hello! I am Basil Eldo, currently studying at Rajagiri School of Engineering and Technology. I have a passion for technology and engineering, and I am always eager to learn and explore new areas in this field.</p>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <!-- Add details about your projects with links, descriptions, etc. -->
-        </div>
-    </section>
+            <!-- Skills -->
+            <div class="toggle-header" id="skills-toggle">Skills</div>
+            <div id="skills-content" class="toggle-content active">
+                <ul>
+                    <li><span style="color: #ff0000; font-size: larger;">UI/UX</span><br>Designing web Interfaces</li>
+                    <li><span style="color: #ff0000; font-size: larger;">Web Development</span><br>Web app development</li>
+                </ul>
+            </div>
 
-    <section id="contact">
-        <div class="container">
+            <!-- Experience -->
+            <div class="toggle-header" id="experience-toggle">Experience</div>
+            <div id="experience-content" class="toggle-content">
+                <ul>
+                    <li><span style="color: #ff0000; font-size: larger;">2021 - Current</span><br>Btech Engineering</li>
+                    <li><span style="color: #ff0000; font-size: larger;">2019 - 2021</span><br>12th class</li>
+                    <li><span style="color: #ff0000;">2019</span><br>10th class complete</li>
+                </ul>
+            </div>
+
+            <!-- Education -->
+            <div class="toggle-header" id="education-toggle">Education</div>
+            <div id="education-content" class="toggle-content">
+                <ul>
+                    <li><span style="color: #ff0000;">2021 - Current</span><br>UI/UX Designing web Interfaces</li>
+                    <li><span style="color: #ff0000;">2019 - 2021</span><br>UI/UX Designing web Interfaces</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <h2>Services</h2>
+            <p>Details about the services you offer.</p>
+        </section>
+
+        <section id="portfolio" class="section">
+            <h2>Portfolio</h2>
+            <div class="projects">
+                <div class="project-box">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                </div>
+                <div class="project-box">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                </div>
+                <div class="project-box">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
             <h2>Contact</h2>
-            <p>You can reach me at: basileldo2@gmail.com.com</p>
-            <!-- Add contact form or other contact information here -->
-        </div>
-    </section>
+            <p>You can reach me at:</p>
+            <p>Email: <a href="mailto:basileldo2@gmail.com">basileldo2@gmail.com</a></p>
+            <p>Phone: <a href="tel:8281684386">+918281684386</a></p>
+        </section>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Basil Eldo | Web Developer</p>
-        </div>
-    </footer>
+    <script>
+        const texts = ["Software Engineer", "UI UX Developer"];
+        let index = 0;
 
+        function typeWriter(text, i, fnCallback) {
+            if (i < text.length) {
+                document.querySelector(".typing-effect").innerHTML += text.charAt(i);
+                setTimeout(() => {
+                    typeWriter(text, i + 1, fnCallback);
+                }, 100);
+            } else if (typeof fnCallback == 'function') {
+                setTimeout(fnCallback, 700);
+            }
+        }
+
+        function startTypingAnimation() {
+            typeWriter(texts[index], 0, () => {
+                index = (index + 1) % texts.length;
+                document.querySelector(".typing-effect").innerHTML = "";
+                startTypingAnimation();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            startTypingAnimation();
+        });
+
+        const headers = document.querySelectorAll('.toggle-header');
+        const contents = document.querySelectorAll('.toggle-content');
+
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const targetContentId = header.id.replace('-toggle', '-content');
+                contents.forEach(content => {
+                    if (content.id === targetContentId) {
+                        content.classList.toggle('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
+
