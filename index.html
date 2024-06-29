@@ -17,7 +17,8 @@
 
         .content {
             padding: 20px;
-            padding-top: 160px;
+            padding-top: 10px;
+            padding-left: 6.5%;
         }
 
         .animate-bg {
@@ -87,12 +88,13 @@
 
         .section {
             padding: 20px;
-            max-width: 800px;
+            max-width: 100%;
             margin: 30px auto;
             text-align: left;
             position: relative;
             padding-right: 40%;
-            padding-top: 7.8%;
+            padding-top: 8.1%;
+            margin-top: 50px;
  
         }
 
@@ -109,9 +111,9 @@
         .section h2::after {
             content: '';
             position: absolute;
-            width: 50px;
+            width: 130px;
             height: 4px;
-            background: #ef0b0b;
+            background: #ffffff;
             left: 0;
             bottom: -10px;
         }
@@ -369,6 +371,93 @@
   background: #e4405f;
   color: #fff;
 }
+.container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row; /* Arrange cards horizontally */
+  gap: 10px; /* Space between the cards */
+  margin-left: 0;
+  padding-right: 0;
+  align-items: center; /* Center cards vertically within the container */
+  justify-content: center; /* Center cards horizontally within the container */
+  flex-wrap: wrap; /* Allow wrapping of cards if there are more than fit in one row */
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #471e22 0%, #2f0f14 46%, #250506 100%);
+  border-radius: 8px;
+  color: white;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
+  padding: 20px; /* Adjusted padding for better content positioning */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column; /* Arrange card content vertically */
+  gap: 10px; /* Space between the title and text */
+  height: 100%;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.card-text {
+  color: inherit;
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.card:hover {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 1;
+}
+
+.card:hover:before {
+  transform: translateX(-100%);
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 1;
+}
+
+.card:hover:after {
+  transform: translateX(100%);
+}
+
+
+
+
 
     </style>
 </head>
@@ -376,7 +465,14 @@
     <div class="animate-bg"></div>
 
     <header id="header">
+        
         <h1><span class="highlight">B</span>asil.</h1>
+        <div class="menu-icon" id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -385,11 +481,19 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
-
+    <button class="toggle-header" id="toggle-button">More Info</button>
+    <div class="toggle-content" id="toggle-content">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    
     <div class="content">
         <section id="home" class="section">
-            <h2 style="font-size: 50px; padding-top: -30px;">Hi, I'm Basil Eldo</h2>
-            <h3 style="font-size: 30px; margin-bottom: -30px; padding-top: -40px;">And I'm a <span class="typing-effect"></span></h3>
+            <h2 style="font-size: 30px; padding-bottom: 0px;">HI THERE,</h2>
+            <h3 style="font-size: 30px; margin-bottom: 10px; padding-top: 0px; padding-bottom: 0px; margin-top: 2px;">I'M <span style="font-size: 40px;" class="typing-effect"></span></h3>
         </section>
         <button class="button">
             <div class="blob1"></div>
@@ -480,34 +584,26 @@
 
         <section id="portfolio" class="section">
             <div class="container">
-                <h2 class="mb-5">Portfolio</h2>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">Project 1</h3>
-                                <p class="card-text">Description of Project 1</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">Project 2</h3>
-                                <p class="card-text">Description of Project 2</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">Project 3</h3>
-                                <p class="card-text">Description of Project 3</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Card 1</div>
+                    <div class="card-text">This is a description for Card 1.</div>
+                  </div>
                 </div>
-            </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Card 2</div>
+                    <div class="card-text">This is a description for Card 2.</div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Card 3</div>
+                    <div class="card-text">This is a description for Card 3.</div>
+                  </div>
+                </div>
+              </div>
+              
         </section>
         
 
@@ -520,7 +616,7 @@
     </div>
 
     <script>
-        const texts = ["Software Engineer", "UI UX Developer"];
+        const texts = ["Basil eldo","Web Developer", "UI UX Developer"];
         let index = 0;
 
         function typeWriter(text, i, fnCallback) {
@@ -573,5 +669,6 @@
     </script>
 </body>
 </html>
+
 
 
