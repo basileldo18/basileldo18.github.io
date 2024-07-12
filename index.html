@@ -6,12 +6,13 @@
     <title>Basil Eldo's Personal Webpage</title>
     <!-- Link Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
  body {
             margin: 0;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: #1c1c1c;
             color: rgb(251, 251, 251);
             overflow-x: hidden;
@@ -57,6 +58,7 @@
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.3s;
+            font-family: 'Montserrat', sans-serif;
         }
 
         nav a:hover::after {
@@ -133,41 +135,27 @@
   }
         .section {
             padding: 20px;
-            max-width: 200%;
+            max-width: 100%;
             margin: 30px auto;
             text-align: left;
             position: relative;
-            padding-right: 10%;
+            padding-right: 5%;
             padding-top: 8.1%;
             margin-top: 50px;
+            padding-left: 5%;
+            font-family: 'Montserrat', sans-serif;
  
         }
 
         .section h2 {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #f5f3f3;
+            color: #ffffff;
             position: relative;
             display: inline-block;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            width: 170px;
-            height: 4px;
-            background: #ffffff;
-            left: 0;
-            bottom: -10px;
-        }
-
-        .section p {
-            font-family: 'Open Sans', Arial, sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #fcf5f5;
+            padding-left: 40%;
         }
 
         .typing-effect {
@@ -438,6 +426,7 @@
     flex-direction: column;
     gap: 10px; /* Reduced space between child elements */
     margin-top: 10px; /* Reduced space above the container */
+    margin-left: 30px;
 }
 
 /* Responsive adjustments */
@@ -463,6 +452,9 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Card shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    height: 40%;
+
 }
 
 .card:hover {
@@ -598,124 +590,133 @@
     text-decoration: none;
     cursor: pointer;
 }
+/* Certificates Section */
+
+
+/* General Styles for Certificates Section */
+
+
+.section h2 {
+    margin-bottom: 40px; /* Increased space below heading */
+    font-size: 2.8em; /* Larger heading for better visibility */
+    color: #ff5722; /* Accent color for the heading */
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Enhanced text shadow for the heading */
+}
+
+/* Certificates Container */
 .certificates {
     display: flex;
-    flex-wrap: wrap;
-    justify-content:left;
-    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping of certificate boxes */
+    justify-content: center; /* Center align certificates */
+    gap: 20px; /* Increased gap between certificates */
 }
 
+/* Certificate Box Styles */
 .certificate-box {
-    width: 60%; /* Reduced width */
-    padding: 15px; /* Reduced padding */
-    background-color: rgba(0, 0, 0, 0.5);
-    margin-bottom: 5px; /* Reduced space between boxes */
-    border-radius: 8px; /* Slightly smaller border radius */
-    transition: transform 0.3s;
-    margin-top: 10px; /* Reduced space above each box */
-    padding-bottom: 5px;
+    width: 100%; /* Full width to take up the available space */
+    max-width: 350px; /* Maximum width for certificate boxes */
+    padding: 20px; /* Padding for certificate boxes */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border-radius: 12px; /* Rounded corners for certificate boxes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; /* Pointer cursor to indicate clickable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for the boxes */
+    margin-left: 30px;
 }
-
 
 .certificate-box:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Increased shadow for hover effect */
 }
 
-
+/* Image Styles */
 .certificate-box img {
-    width: 120%; /* Adjust as needed */
+    width: 100%; /* Full width of the container */
     height: auto; /* Maintain aspect ratio */
-    max-width: 100%;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    margin-right: 0; /* Adjust as needed */
+    max-height: 300px; /* Limit image height */
+    border-radius: 8px; /* Rounded corners for images */
+    margin-bottom: 15px; /* Space below images */
 }
 
-
+/* Certificate Title Styles */
 .certificate-box h3 {
-    font-size: 19px;
-    margin-bottom: 10px;
-    color: #ff0000;
+    font-size: 1em; /* Normal size for certificate titles */
+    color: #fff; /* White color for the text */
+    font-family: 'Montserrat', sans-serif;
 }
 
-.certificate-box p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #ffffff;
-}
-
+/* Modal Styles */
 .modal {
     display: none; 
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     left: 0;
-    top: 0px;
-    margin-top: 10%;
+    top: 0;
     width: 100%;
-    height: 180%;
+    height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background */
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; /* Rounded corners for the modal */
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 12px; /* Rounded corners for the image */
 }
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 35px;
+    top: 15px;
+    right: 20px;
     color: #fff;
-    font-size: 40px;
+    font-size: 2.5em;
     font-weight: bold;
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
+
+.close:hover {
+    color: #ff5722; /* Accent color for the close button */
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .certificate-box {
-        max-width: 80%; /* Ensure the certificate boxes use 80% of the mobile screen width */
-        padding: 20px;
+        max-width: 90%; /* Ensure the certificate boxes use 90% of the mobile screen width */
+        padding: 25px;
     }
 
     .certificate-box img {
-        max-height: 200px; /* Optional: Adjust based on your images */
-    }
-
-    .certificate-box h3 {
-        font-size: 0; /* Hide the text */
-        display: none; /* Ensure the text is not displayed */
+        max-height: 350px; /* Adjust size of images */
     }
 
     .section {
-        background: transparent; /* Remove the black background on smaller devices */
+        background: #1e1e1e; /* Maintain background color on mobile devices */
     }
 }
 
 @media (max-width: 568px) {
     .section h2 {
-        font-size: 1.5em;
+        font-size: 2em; /* Adjust heading size */
     }
 
     .certificate-box {
-        max-width: 80%; /* Ensure the certificate boxes use 80% of the mobile screen width */
+        max-width: 95%; /* Increase width for better visibility */
         padding: 25px;
     }
 
     .certificate-box img {
-        max-height: 250px;
-         /* Increase size of images */
-    }
-
-    .certificate-box h3 {
-        font-size: 0; /* Hide the text */
-        display: none; /* Ensure the text is not displayed */
+        max-height: 400px; /* Increase size of images */
     }
 
     .section {
-        background: transparent; /* Remove the black background on smaller devices */
+        background: #1e1e1e; /* Maintain background color on mobile devices */
     }
 }
 
@@ -726,29 +727,27 @@
     }
 
     .section h2 {
-        font-size: 1.7em; /* Slightly larger heading for very small screens */
+        font-size: 1.5em; /* Slightly smaller heading for very small screens */
     }
 
     .certificate-box {
-        max-width: 100%; /* Increase width for better visibility */
-        padding: 20px;
-        border-radius: 4px; /* Rounded corners for the certificate box */
+        max-width: 100%; /* Full width for better visibility */
+        padding: 15px;
+        border-radius: 10px; /* Rounded corners for the certificate box */
+        margin-bottom: 20px; /* Adjust space between boxes */
     }
 
     .certificate-box img {
-        max-height: 600px;
-        max-width: 100%
-        ; /* Further increase size of images */
+        max-height: 350px; /* Increase size of images */
     }
 
     .certificate-box h3 {
-        font-size: 1.7em; /* Hide the text */
-        display: none; /* Ensure the text is not displayed */
+        font-size: 0.9em; /* Adjust font size for text */
     }
 
     .section {
-        background: transparent; /* Remove the black background on smaller devices */
-        border-radius: 5px; /* Rounded corners for the section */
+        background: #1e1e1e; /* Maintain background color on mobile devices */
+        border-radius: 10px; /* Rounded corners for the section */
     }
 }
 
@@ -851,11 +850,10 @@
     </header>
 
     <div class="content">
-        <section id="home" class="section">
-            <h2 style="font-size: 30px; padding-bottom: 0px;">HI THERE,</h2>
-            <h3 style="font-size: 30px; margin-bottom: 10px; padding-top: 0px; padding-bottom: 0px; margin-top: 2px;">I'M <span style="font-size: 40px;" class="typing-effect"></span></h3>
+        <section id="home" class="section" style="padding-top: 90px;">
+            <h3 style="font-size: 30px;margin-left: 10px; margin-bottom: 10px; padding-top: 90px; padding-bottom: 0px; margin-top: 2px;">I'M <span style="font-size: 40px;" class="typing-effect"></span></h3>
         </section>
-        <button class="button">
+        <button class="button" style="margin-left: 80px;">
             <div class="blob1"></div>
             <div class="blob2"></div>
             <div class="inner">Download cv</div>
@@ -1010,6 +1008,10 @@
                 <div class="certificate-box" onclick="openModal('Screenshot 2024-07-07 222243.png')">
                     <img src="Screenshot 2024-07-07 222243.png" alt="Certificate 2">
                     <h3>HACKERRANK Python (Basic) Certificate</h3>
+                </div>
+                <div class="certificate-box" onclick="openModal('Screenshot 2024-07-12 173939.png')">
+                    <img src="Screenshot 2024-07-12 173939.png" alt="Certificate 2">
+                    <h3>PRASUNETHON Hackathon 2024</h3>
                 </div>
             </div>
         </section>
@@ -1200,6 +1202,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Menu icon or nav element not found.');
     }
 });
+
+    </script>
+</body>
+</html>
 
     </script>
 </body>
